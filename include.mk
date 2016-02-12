@@ -10,7 +10,8 @@ ifeq (${SYS},FreeBSD)
     cxx = gcc34 -std=c99 -Wno-unused-but-set-variable
     cpp = g++
 else ifeq ($(SYS),Darwin) #This is to deal with the Mavericks replacing gcc with clang fully
-	cxx = clang -std=c99 
+#	cxx = clang -std=c99 
+	cxx = gcc-5
 	cpp = clang++ 
 else
     cxx = gcc -std=c99
@@ -24,7 +25,7 @@ endif
 # linker input files. See <http://stackoverflow.com/a/8266512/402891>.
 
 #Release compiler flags
-cflags_opt = -O3 -g -Wall --pedantic -funroll-loops -DNDEBUG 
+cflags_opt = -O3 -g -Wall --pedantic -fopenmp -funroll-loops -DNDEBUG 
 #-fopenmp
 cppflags_opt = -O3 -g -Wall -funroll-loops -DNDEBUG
 
@@ -98,4 +99,3 @@ endif
 #endif
 
 dblibs = ${tokyoCabinetLib} ${kyotoTycoonLib} ${mysqlLibs} -lz -lm
-
