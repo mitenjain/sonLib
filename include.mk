@@ -18,6 +18,9 @@ else
     cpp = g++ 
 endif
 
+cxx = clang -std=c99
+cpp = clang++
+
 # -Wno-unused-result
 
 # Compiler flags.
@@ -43,7 +46,7 @@ cflags_prof = -Wall -Werror --pedantic -pg -O3 -g -Wno-error=unused-result
 cppflags = ${cppflags_opt} 
 
 #Flags to use
-cflags = ${cflags_opt} 
+cflags = ${cflags_dbg} 
 
 # location of Tokyo cabinet
 ifndef tokyoCabinetLib
